@@ -10,13 +10,13 @@ import Foundation
 class CoinPresenter {
 
   //MARK: - Vars
-  var arrData = [CoinModel]()
+  var arrData: [Displayable] = []
   var view: CoinView?
 
   //MARK: - Pagination Vars
   var coinPerPages = 10
   var limit = 10
-  var paginationCoin: [CoinModel] = []
+  var paginationCoin: [Displayable] = []
 
   init(_ view: CoinView) {
     self.view = view
@@ -30,10 +30,11 @@ class CoinPresenter {
 
       case .success(let data):
         guard let data = data else { return }
+        print(data)
         arrData = data
         limit = arrData.count
         for i in 0..<10 {
-          paginationCoin.append(arrData[i])
+          paginationCoin.append(arrData[i] as! CoinModel)
         }
         DispatchQueue.main.async {
           self.view?.reloadCoinTableView()
@@ -49,7 +50,7 @@ class CoinPresenter {
   }
 
   func getUsedCoin(at row: Int) -> CoinModel {
-    return paginationCoin[row]
+    return paginationCoin[row] as! CoinModel
   }
 
   func willDisplayCoin(at row: Int) {

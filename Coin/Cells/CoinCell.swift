@@ -9,12 +9,13 @@ import UIKit
 
 class CoinCell: UITableViewCell {
 
+
   @IBOutlet weak var coinImage: UIImageView!
   @IBOutlet weak var coinLabel: UILabel!
 
   func configureCell(with coin: CoinModel) {
-    coinLabel.text = coin.name
-    guard let imageURL = coin.image else { return }
+    coinLabel.text = coin.titleLabelText
+    let imageURL = coin.coinImage
     coinImage.load(urlString: imageURL)
   }
 }
