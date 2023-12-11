@@ -16,7 +16,6 @@ class CoinMainViewController: UIViewController {
 //MARK: - Vars
   private var presenter: CoinPresenter!
   var selectedItem: Displayable?
-  
   @IBOutlet weak var coinTableView: UITableView!
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +53,13 @@ extension CoinMainViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     selectedItem = presenter.paginationCoin[indexPath.row]
     return indexPath
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    selectedItem = presenter.paginationCoin[indexPath.row]
+    let vc = DetailViewController()
+    vc.data = selectedItem
+    navigationController?.pushViewController(vc, animated: true)
   }
 
 }

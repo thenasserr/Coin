@@ -9,6 +9,7 @@ import Foundation
 
 class CoinPresenter {
 
+
   //MARK: - Vars
   var arrData: [Displayable] = []
   var view: CoinView?
@@ -30,7 +31,7 @@ class CoinPresenter {
 
       case .success(let data):
         guard let data = data else { return }
-        print(data)
+//        print(data)
         arrData = data
         limit = arrData.count
         for i in 0..<10 {

@@ -7,9 +7,9 @@
 
 import Foundation
 
-//protocol CoinAPIProtocol {
-//    func getCoin(completion: @escaping (Result<[CoinModel]?, NSError>) -> Void )
-//}
+protocol CoinAPIProtocol {
+    func getCoin(completion: @escaping (Result<[CoinModel]?, NSError>) -> Void )
+}
 
 class CoinAPI: BaseAPI<CoinsNetworking> {
     //MARK: - Requests

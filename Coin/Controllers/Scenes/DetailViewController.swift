@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
     titleLabel.text = data.titleLabelText
     subtitleLabel.text = data.subtitleLabelText
     item1TitleLabel.text = data.item1.label
-    item1Label.text = String(describing: data.item1.value)
+    item1Label.text = "\(data.item1.value!)"
     item2TitleLabel.text = data.item2.label
     item2Label.text = String(describing: data.item2.value)
     item3TitleLabel.text = data.item3.label
